@@ -138,6 +138,7 @@ var projects = {
 			"title": "Member of Women Who Code, DC",
 			"dates": "June 2015 - present",
 			"description": "Participate in DC Chapter of national organization that provides women with programming skills to expand career opportunities",
+<<<<<<< HEAD
 			"images": ["images/projectImage.png"]
 		},
 		{
@@ -145,10 +146,22 @@ var projects = {
 			"dates": "June 2015-present",
 			"description": "Participate in a non-partisan, non-political group of volunteer civic hackers working together to solve local issues and help people engage with DC.",
 			"images": ["images/projectImage2.png"]
+||||||| merged common ancestors
+			"images": "images/image.png"
+=======
+			"images": ["images/image2.png"]
+		},
+		{
+			"title": "Code for DC",
+			"dates": "June 2015-present",
+			"description": "Participate in a non-partisan, non-political group of volunteer civic hackers working together to solve local issues and help people engage with DC.",
+			"images": ["images/image2.png"]
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 		}
 	]
 };
 
+<<<<<<< HEAD
 projects.display = function () {
 	for (project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
@@ -169,12 +182,54 @@ projects.display = function () {
 }
 
 projects.display();
+||||||| merged common ancestors
+$("#projects").append(HTMLprojectStart);
+var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects.title);
+$("#projects").append(formattedTitle);
+var formattedDates = HTMLprojectDates.replace("%data%", projects.projects.dates);
+$("#projects").append(formattedDates);
+var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects.description);
+$("#projects").append(formattedDescription);
+var formattedImage = HTMLprojectImage.replace("%data%", projects.projects.images);
+$("#projects").append(formattedImage);
+
+			
+=======
+projects.display = function () {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+		
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		} 
+	}
+}
+		
+projects.display();			
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
+<<<<<<< HEAD
 var HTMLprojectImage = '<img src="%data%" width= "200">';
 
+||||||| merged common ancestors
+var HTMLprojectImage = '<img src="%data%" class="images/image.png">';
+=======
+var HTMLprojectImage = '<img src="%data%" class="images/image.png">';
+
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 	
 var education = {
 	"schools": [
@@ -223,6 +278,16 @@ var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+
+
+=======
+
+
+
+
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -242,8 +307,65 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
+<<<<<<< HEAD
+var map;   
+||||||| merged common ancestors
+/*
+The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+*/
+clickLocations = [];
+
+function logClicks(x,y) {
+  clickLocations.push(
+    {
+      x: x,
+      y: y
+    }
+  );
+  console.log('x location: ' + x + '; y location: ' + y);
+}
+=======
+
+clickLocations = [];
+
+function logClicks(x,y) {
+  clickLocations.push(
+    {
+      x: x,
+      y: y
+    }
+  );
+  console.log('x location: ' + x + '; y location: ' + y);
+}
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
+
+<<<<<<< HEAD
+||||||| merged common ancestors
+$(document).click(function(loc) {
+  // your code goes here!
+});
+
+
+
+/*
+This is the fun part. Here's where we generate the custom Google Map for the website.
+See the documentation below for more details.
+https://developers.google.com/maps/documentation/javascript/reference
+*/
+var map;    // declares a global map variable
+
+
+/*
+Start here! initializeMap() is called when page is loaded.
+*/
+=======
+$(document).click(function(loc) {
+});
+
 var map;   
 
+
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 function initializeMap() {
 
   var locations;
@@ -251,10 +373,25 @@ function initializeMap() {
   var mapOptions = {
     disableDefaultUI: true
   };
+<<<<<<< HEAD
   
   map = new google.maps.Map(document.getElementById('#map'), mapOptions);
   var googleMap
   $("#map-div").append(googleMap);
+||||||| merged common ancestors
+
+  /* 
+  For the map to be displayed, the googleMap var must be
+  appended to #mapDiv in resumeBuilder.js. 
+  */
+  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+=======
+
+  
+  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  var googleMap
+  $("#mapDiv").append(googleMap);
+>>>>>>> 76c93b7c7ce352d2958f2af46d5723040c61e11f
 
 
   function locationFinder() {
