@@ -254,7 +254,7 @@ function initializeMap() {
   
   map = new google.maps.Map(document.getElementById('#map'), mapOptions);
   var googleMap
-  $("#mapDiv").append(googleMap);
+  $("#map-div").append(googleMap);
 
 
   function locationFinder() {
