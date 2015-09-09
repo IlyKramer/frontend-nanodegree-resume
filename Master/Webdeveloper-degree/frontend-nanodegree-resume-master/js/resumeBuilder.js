@@ -1,9 +1,8 @@
+'use strict;'
 var name = "Ilyse B. Kramer";
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedName = HTMLheaderName.replace("%data%", "name");
 $("#header").prepend(formattedName);
 var role = "Web Developer";
-var HTMLheaderRole = '<span>%data%</span><hr/>';
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 $("#header").prepend(formattedRole);
 
@@ -26,50 +25,35 @@ var bio = {
 		"bioPic": ["images/bioPic.png"]
 	}
 	
-	
-	var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
 	var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 	$("#topContacts").append(formattedmobile);
 	$("#footerContacts").append(formattedmobile);
 	
-	var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
 	var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
 	$("#topContacts").append(formattedemail);
 	$("#footerContacts").append(formattedemail);
 
-	
-	var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
 	var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
 	$("#topContacts").append(formattedgithub);
 	$("#footerContacts").append(formattedgithub);
 	
-	var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
 	var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
 	$("#topContacts").append(formattedtwitter);
 	$("#footerContacts").append(formattedtwitter);
 	
-	
-	var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 	var formattedblog = HTMLblog.replace("%data%", bio.contacts.blog);
 	$("#topContacts").append(formattedblog);
 	$("#footerContacts").append(formattedblog);
 	
-	var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 	var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
 	$("#topContacts").append(formattedlocation);
 	$("#footerContacts").append(formattedlocation);
 
-	var HTMLbioPic = '<img src="%data%" class="biopic">';
 	var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 	$("#topContacts").append(formattedbioPic)
 	
-	
-	var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
 	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", "information services professional seeking career as front-end web developer");
 	$("#header").append(formattedWelcomeMsg);
-
-	var HTMLskillsStart = '<h3 id="skillsH3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-	var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 	if(bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
@@ -81,6 +65,10 @@ var bio = {
 		$("#skills").append(formattedSkill);
 		formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 		$("#skills").append(formattedSkill);
+		
+		bio.display();		
+		
+		
 	}
 	var work = {
 		"jobs": [
@@ -107,7 +95,8 @@ var bio = {
 			}
 		]
 	}
- function displayWork() {
+	
+ work.display = function () {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -122,20 +111,15 @@ var bio = {
 		$(".work-entry:last").append(formattedDescription);	
 	}
 }
-displayWork();	
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';		
+work.display();	
+
 
 var projects = {
 	"projects": [
 		{
 			"title": "Member of Women Who Code, DC",
 			"dates": "June 2015 - present",
-			"description": "Participate in DC Chapter of national organization that provides women with programming skills to expand career opportunities.",
+			"description": "Participate in DC Chapter of national organization that provides women with programming skills to expand career opportunities",
 			"images": ["images/projectImage.png"]
 		},
 		{
@@ -165,12 +149,9 @@ projects.display = function () {
 		} 
 	}
 }
+
 projects.display();
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%" width= "200">';
+
 	
 var education = {
 	"schools": [
@@ -196,7 +177,7 @@ var education = {
 	]
 }
 	
-function displayEducation() {
+education.display = function () {
 	for (school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedschoolName = HTMLschoolName.replace("%data%", education.schools[school].name);	
@@ -211,13 +192,9 @@ function displayEducation() {
 	}
 }
 				 	
-displayEducation();
+education.display();
 
-var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text">%data%</div>';
+clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
@@ -235,3 +212,4 @@ $(document).click(function(loc) {
 
 	logClicks(x,y);
 });
+

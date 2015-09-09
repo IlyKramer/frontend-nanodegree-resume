@@ -1,4 +1,3 @@
-
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
@@ -27,7 +26,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src= "%data%" width = "200">';
+var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -52,7 +51,6 @@ $(document).ready(function() {
   });
 });
 
-
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -66,7 +64,6 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-
 });
 
 
@@ -90,7 +87,13 @@ function initializeMap() {
     disableDefaultUI: true
   };
 
+  /* 
+  For the map to be displayed, the googleMap var must be
+  appended to #mapDiv in resumeBuilder.js. 
+  */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+
+
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
