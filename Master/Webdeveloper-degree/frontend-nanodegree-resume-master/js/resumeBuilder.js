@@ -1,12 +1,7 @@
 'use strict;'
-var name = "Ilyse B. Kramer";
-var formattedName = HTMLheaderName.replace("%data%", "name");
-$("#header").prepend(formattedName);
-var role = "Web Developer";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-$("#header").prepend(formattedRole);
 
 var bio = {
+	
 	"name" : "Ilyse B. Kramer",
 	"role" : "Web Developer",
 	"contacts": {
@@ -24,52 +19,62 @@ var bio = {
 		],
 		"bioPic": ["images/bioPic.png"]
 	}
-	
-	var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#topContacts").append(formattedmobile);
-	$("#footerContacts").append(formattedmobile);
-	
-	var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#topContacts").append(formattedemail);
-	$("#footerContacts").append(formattedemail);
+	bio.display = function(){
 
-	var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#topContacts").append(formattedgithub);
-	$("#footerContacts").append(formattedgithub);
+		var name = 'Ilyse B. Kramer';
+		var formattedName = HTMLheaderName.replace("%data%", "Ilyse B. Kramer");
+		$("#header").prepend(formattedName);
+		var role = "Web Developer";
+		var formattedRole = HTMLheaderRole.replace("%data%", role);
+		$("#header").prepend(formattedRole);
+		
+		var formattedmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		$("#topContacts").append(formattedmobile);
+		$("#footerContacts").append(formattedmobile);
 	
-	var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#topContacts").append(formattedtwitter);
-	$("#footerContacts").append(formattedtwitter);
-	
-	var formattedblog = HTMLblog.replace("%data%", bio.contacts.blog);
-	$("#topContacts").append(formattedblog);
-	$("#footerContacts").append(formattedblog);
-	
-	var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#topContacts").append(formattedlocation);
-	$("#footerContacts").append(formattedlocation);
+		var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
+		$("#topContacts").append(formattedemail);
+		$("#footerContacts").append(formattedemail);
 
-	var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-	$("#topContacts").append(formattedbioPic)
+		var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		$("#topContacts").append(formattedgithub);
+		$("#footerContacts").append(formattedgithub);
 	
-	var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%", "information services professional seeking career as front-end web developer");
-	$("#header").append(formattedWelcomeMsg);
+		var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		$("#topContacts").append(formattedtwitter);
+		$("#footerContacts").append(formattedtwitter);
+	
+		var formattedblog = HTMLblog.replace("%data%", bio.contacts.blog);
+		$("#topContacts").append(formattedblog);
+		$("#footerContacts").append(formattedblog);
+	
+		var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		$("#topContacts").append(formattedlocation);
+		$("#footerContacts").append(formattedlocation);
 
-	if(bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#skills").append(formattedSkill);
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-		$("#skills").append(formattedSkill);
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-		$("#skills").append(formattedSkill);
-		formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-		$("#skills").append(formattedSkill);
+		var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+		$("#topContacts").append(formattedbioPic)
+	
+		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", "information services professional seeking career as front-end web developer");
+		$("#header").append(formattedWelcomeMsg);
+
 		
-		bio.display();		
-		
-		
+		if(bio.skills.length > 0) {
+			$("#header").append(HTMLskillsStart);
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+			$("#skills").append(formattedSkill);
+			formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+			$("#skills").append(formattedSkill);
+			formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+			$("#skills").append(formattedSkill);
+			formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+			$("#skills").append(formattedSkill);
+	
+		}
 	}
+
+	bio.display();
+	
 	var work = {
 		"jobs": [
 			{
@@ -113,7 +118,6 @@ var bio = {
 }
 work.display();	
 
-
 var projects = {
 	"projects": [
 		{
@@ -151,7 +155,6 @@ projects.display = function () {
 }
 
 projects.display();
-
 	
 var education = {
 	"schools": [
@@ -213,3 +216,4 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
+$("#mapDiv").append(googleMap);
