@@ -8,16 +8,14 @@ var bio = {
 		"mobile" : "267-918-4883",
 		"email" : "ilykramer@gmail.com",
 		"github" : "IlyKramer",
-		"twitter" : "@edgyamelia",
-		"blog" : "www.edgyamelia.wordpress.com",
+		"linkedin" : "https://www.linkedin.com/pub/ilyse-kramer/16/4bb/273",
 		"location" : "Washington, DC"
 	
 	},
 		"welcomeMesssage" : "information services professional seeking career as front-end web developer",
 		"skills": [
-			"Git", "HTML", "CSS", "JavaScript"
-		],
-		"bioPic": ["images/bioPic.png"]
+			"Programming Languages:  Git, HTML, CSS, Javascript", "Data Analysis: Excel, SPSS, SurveyMonkey, Wufoo", "Languages: Spanish (proficient), American Sign Language (beginner)", "Additional Skills: Grantwriting, Community Outreach"
+		]
 	}
 	bio.display = function(){
 
@@ -40,20 +38,13 @@ var bio = {
 		$("#topContacts").append(formattedgithub);
 		$("#footerContacts").append(formattedgithub);
 	
-		var formattedtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-		$("#topContacts").append(formattedtwitter);
-		$("#footerContacts").append(formattedtwitter);
-	
-		var formattedblog = HTMLblog.replace("%data%", bio.contacts.blog);
-		$("#topContacts").append(formattedblog);
-		$("#footerContacts").append(formattedblog);
+		var formattedlinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+		$("#topContacts").append(formattedlinkedin);
+		$("#footerContacts").append(formattedlinkedin);
 	
 		var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
 		$("#topContacts").append(formattedlocation);
 		$("#footerContacts").append(formattedlocation);
-
-		var formattedbioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-		$("#topContacts").append(formattedbioPic)
 	
 		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", "information services professional seeking career as front-end web developer");
 		$("#header").append(formattedWelcomeMsg);
@@ -81,21 +72,21 @@ var bio = {
 				"employer": "The Arc",
 				"title": "Associate",
 				"location": "Washington, DC",
-				"dates": "November, 2013 - present",
+				"dates": "November 2013 - present",
 				"description": "Update web pages, coordinate and execute special events, and provide digital and in-person professional development resources to support the nearly 700 chapters of the United States’ largest organization serving people with Intellectual and Developmental Disabilities."
 			},
 			{
 				"employer": "Art Beyond Sight",
 				"title": "Consultant",
-				"dates": "November, 2014 - present",
 				"location": "Washington, DC",
+				"dates": "November 2014 - present",
 				"description": "Research, analyze, and propose technology solutions that will make art and cultural museums more accessible to people with disabilities"
 			},
 			{
 				"employer": "American Institutes for Research",
 				"title": "Consultant",
-				"dates": "April, 2013 - October 2013",
 				"location": "Washington, DC",
+				"dates": "April 2013 - October 2013",
 				"description": "Disseminated information for Model Systems Knowledge Translation Center, a National Institute on Disability and Rehabilitation Research (NIDRR) funded project that provides health information resources for people with Spinal Cord Injury (SCI), Traumatic Brain Injury (TBI), and Burn Injuries." 
 			}
 		]
@@ -121,15 +112,15 @@ work.display();
 var projects = {
 	"projects": [
 		{
-			"title": "Member of Women Who Code, DC",
+			"title": "Projects for Women Who Code, DC",
 			"dates": "June 2015 - present",
-			"description": "Participate in DC Chapter of national organization that provides women with programming skills to expand career opportunities",
+			"description": "Conduct projects for DC Chapter of national organization that provides women with programming skills to expand career opportunities",
 			"images": ["images/projectImage.png"]
 		},
 		{
 			"title": "Code for DC",
 			"dates": "June 2015-present",
-			"description": "Participate in a non-partisan, non-political group of volunteer civic hackers working together to solve local issues and help people engage with DC.",
+			"description": "Conduct projects for a non-partisan, non-political group of volunteer civic hackers working together to solve local issues and help people engage with DC.",
 			"images": ["images/projectImage2.png"]
 		}
 	]
@@ -160,9 +151,9 @@ var education = {
 	"schools": [
 		{
 			"name": "Udacity",
-			"location": "https://www.udacity.com",	
-			"degree": "Front-End Web Development Nanodegree",
-			"dates": "June 2015-December 2015"
+			"dates": "June 2015-December 2015",	
+			"location": "https://www.udacity.com",
+			"degree": "Front-End Web Development Nanodegree"
 		},
 		{
 			"name": "University of Washington",
